@@ -42,7 +42,7 @@
                 android:text="TextView"
                 android:textStyle="bold"
                 android:textSize="34sp"
-                app:fontFamily="cursive" />
+                android:fontFamily="cursive" />
 
             <LinearLayout
                 android:layout_width="match_parent"
