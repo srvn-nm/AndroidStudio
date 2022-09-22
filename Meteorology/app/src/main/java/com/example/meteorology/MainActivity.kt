@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         val client = OkHttpClient()
 
-        val request = Request.Builder().url("https://api.openweathermap.org/data/2.5/weather?q=tehran&appid=501b25848afaeca041fb1ce35525d09b").build()
+        val request = Request.Builder().url("https://api.openweathermap.org/data/2.5/weather?q=tehran&appid=501b25848afaeca041fb1ce35525d09b&units=metric").build()
 
         client.newCall(request).enqueue(object :Callback{
             override fun onFailure(call: Call, e: IOException) {
@@ -39,6 +39,12 @@ class MainActivity : AppCompatActivity() {
                 val weatherImageUrl = "https://openweathermap.org/img/wn/${weatherIcon}@2x.png"
                 val sunrise = downloadedJSON.getJSONObject("sys").getInt("sunrise")
                 val sunset = downloadedJSON.getJSONObject("sys").getInt("sunset")
+                val temp = downloadedJSON.getJSONObject("main").getDouble("temp")
+                val feels_like = downloadedJSON.getJSONObject("main").getDouble("feels_like")
+                val temp_min = downloadedJSON.getJSONObject("main").getDouble("temp_min")
+                val temp_max = downloadedJSON.getJSONObject("main").getDouble("temp_max")
+                val pressure = downloadedJSON.getJSONObject("main").getInt("pressure")
+                val humidity = downloadedJSON.getJSONObject("main").getInt("humidity")
 
                 Log.d("tagx","onResponse: successful")
 
