@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="false"
+    android:background="#AA9BEF"
+    android:backgroundTint="#AA9BEF"
+    android:focusable="auto"
+    android:focusableInTouchMode="true"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The calculation"
+        android:textColor="#090909"
+        android:textColorHighlight="#FD0303"
+        android:textSize="24sp"
+        app:barrierMargin="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:text="of your age"
+        android:textColor="#090909"
+        android:textColorHighlight="#FA0202"
+        android:textSize="24sp"
+        app:barrierMargin="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:text="in minutes!"
+        android:textColor="#050505"
+        android:textColorHighlight="#F80202"
+        android:textSize="24sp"
+        app:barrierMargin="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/buttonSelectDate"
+        android:layout_width="376dp"
+        android:layout_height="45dp"
+        android:shadowColor="#025105"
+        android:text="choose the date of birth"
+        android:textSize="16sp"
+        app:barrierMargin="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:rippleColor="#18801C"
+        app:strokeColor="#9F0C0C" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:text="The date"
+        android:textSize="16sp"
+        app:barrierMargin="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonSelectDate" />
+
+    <TextView
+        android:id="@+id/textViewSelectedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="1/1/1111"
+        android:textSize="16sp"
+        app:barrierMargin="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="The result"
+        android:textColor="#045507"
+        android:textSize="20sp"
+        app:barrierMargin="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSelectedDate"
+        app:layout_constraintStart_toStartOf="@+id/textViewSelectedDate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSelectedDate" />
+
+    <TextView
+        android:id="@+id/textViewAgeInMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:text="111111"
+        android:textColor="#023E04"
+        android:textSize="24sp"
+        app:barrierMargin="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textViewMode"
+        android:layout_width="79dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="32dp"
+        android:text="Your Mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAgeInMinutes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
