@@ -40,16 +40,16 @@ class MainActivity : AppCompatActivity() {
                 val sunrise = downloadedJSON.getJSONObject("sys").getInt("sunrise")
                 val sunset = downloadedJSON.getJSONObject("sys").getInt("sunset")
                 val temp = downloadedJSON.getJSONObject("main").getDouble("temp")
-                val feels_like = downloadedJSON.getJSONObject("main").getDouble("feels_like")
-                val temp_min = downloadedJSON.getJSONObject("main").getDouble("temp_min")
-                val temp_max = downloadedJSON.getJSONObject("main").getDouble("temp_max")
+                val feelsLike = downloadedJSON.getJSONObject("main").getDouble("feels_like")
+                val tempMin = downloadedJSON.getJSONObject("main").getDouble("temp_min")
+                val tempMax = downloadedJSON.getJSONObject("main").getDouble("temp_max")
                 val pressure = downloadedJSON.getJSONObject("main").getInt("pressure")
                 val humidity = downloadedJSON.getJSONObject("main").getInt("humidity")
 
                 Log.d("tagx","onResponse: successful")
 
                 runOnUiThread {
-                    showInfo(downloadedJSON.getString("name"),weatherCity,weatherImageUrl,timeFromUnix(sunrise),timeFromUnix(sunset))
+                    showInfo(downloadedJSON.getString("name"),weatherCity,weatherImageUrl,timeFromUnix(sunrise),timeFromUnix(sunset),temp,feelsLike,tempMin,tempMax,pressure,humidity)
 
                 }
 
@@ -58,12 +58,15 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun showInfo(city: String, weather:String, imageUrl:String, sunrise:String, sunset:String){
+    @SuppressLint("SetTextI18n")
+    fun showInfo(city: String, weather:String, imageUrl:String, sunrise:String, sunset:String, temp:Double, feelsLike:Double,tempMin:Double,tempMax:Double,pressure:Int,humidity:Int){
         binding.city.text = city
         binding.weather.text = weather
         Glide.with(this@MainActivity).load(imageUrl).into(binding.weatherIcon)
-        binding.sunrise.text = sunrise
-        binding.sunset.text = sunset
+        binding.sunrise.text = "Sunrise: $sunrise"
+        binding.sunset.text = "Sunset: $sunset"
+        binding.temp.text = "Temperature: $temp"
+        binding.feelsLike.text = "FeelsLike: $feelsLike"
     }
 
     @SuppressLint("SimpleDateFormat")

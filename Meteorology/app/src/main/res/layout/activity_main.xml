@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    tools:ignore="SpUsage">
+    tools:ignore="SpUsage,HardcodedText">
 
     <ScrollView
         android:id="@+id/horizontalScrollView"
@@ -39,10 +39,49 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
+                android:fontFamily="cursive"
                 android:text="TextView"
-                android:textStyle="bold"
                 android:textSize="34sp"
-                android:fontFamily="cursive" />
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                app:cardCornerRadius="15dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:text="TextView"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.101"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/feelsLike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:text="TextView"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.098"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/temp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,8 +97,8 @@
                     android:layout_marginBottom="0dp"
                     android:layout_weight="2"
                     android:text="TextView"
-                    android:textStyle="bold"
-                    android:textSize="24dp" />
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/weatherIcon"
@@ -74,18 +113,20 @@
                 android:id="@+id/sunrise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="TextView"
-                android:textStyle="bold"
-                android:textSize="24dp"/>
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/sunset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
                 android:text="TextView"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:layout_marginBottom="4dp"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
