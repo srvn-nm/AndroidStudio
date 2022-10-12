@@ -60,7 +60,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="16dp"
                         android:text="TextView"
-                        android:textSize="18dp"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.101"
@@ -74,7 +74,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="16dp"
                         android:text="TextView"
-                        android:textSize="18dp"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.098"
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="TextView"
-                android:textSize="24dp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -125,7 +125,47 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="4dp"
                 android:text="TextView"
-                android:textSize="24dp"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tempmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:text="TextView"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tempmax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:text="TextView"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pressure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:text="TextView"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:text="TextView"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
