@@ -65,10 +65,10 @@ class MainActivity : AppCompatActivity() {
         Glide.with(this@MainActivity).load(imageUrl).into(binding.weatherIcon)
         binding.sunrise.text = "Sunrise: $sunrise"
         binding.sunset.text = "Sunset: $sunset"
-        binding.temp.text = "Temperature: $temp"
-        binding.feelsLike.text = "FeelsLike: $feelsLike"
-        binding.tempmin.text = "Minimum Temperature: $tempMin"
-        binding.tempmax.text = "Maximum Temperature: $tempMax"
+        binding.temp.text = "Temperature: $temp°"
+        binding.feelsLike.text = "FeelsLike: $feelsLike°"
+        binding.tempmin.text = "Minimum: $tempMin°"
+        binding.tempmax.text = "Maximum: $tempMax°"
         binding.pressure.text = "Pressure: $pressure"
         binding.humidity.text = "Humidity: $humidity"
     }
