@@ -67,6 +67,10 @@ class MainActivity : AppCompatActivity() {
         binding.sunset.text = "Sunset: $sunset"
         binding.temp.text = "Temperature: $temp"
         binding.feelsLike.text = "FeelsLike: $feelsLike"
+        binding.tempmin.text = "Minimum Temperature: $tempMin"
+        binding.tempmax.text = "Maximum Temperature: $tempMax"
+        binding.pressure.text = "Pressure: $pressure"
+        binding.humidity.text = "Humidity: $humidity"
     }
 
     @SuppressLint("SimpleDateFormat")
