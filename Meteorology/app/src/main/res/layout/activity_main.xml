@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pullToRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -54,6 +58,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginBottom="0dp"
                     android:layout_weight="2"
@@ -66,6 +71,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="20dp"
                     android:contentDescription="TODO"
                     app:srcCompat="@drawable/ic_launcher_foreground" />
             </LinearLayout>
@@ -116,8 +122,9 @@
                         android:text="TextView"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/feelsLike"
-                        app:layout_constraintStart_toStartOf="@+id/feelsLike"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.098"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/feelsLike" />
 
                     <TextView
@@ -129,8 +136,9 @@
                         android:text="TextView"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/sunrise"
-                        app:layout_constraintStart_toStartOf="@+id/sunrise"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.098"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/sunrise" />
 
                     <TextView
@@ -142,8 +150,9 @@
                         android:text="TextView"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/sunset"
-                        app:layout_constraintStart_toStartOf="@+id/sunset"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.098"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/sunset" />
 
                     <TextView
@@ -155,8 +164,9 @@
                         android:text="TextView"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/tempmin"
-                        app:layout_constraintStart_toStartOf="@+id/tempmin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.098"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tempmin" />
 
                     <TextView
@@ -168,8 +178,9 @@
                         android:text="TextView"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/tempmax"
-                        app:layout_constraintStart_toStartOf="@+id/tempmax"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.098"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tempmax" />
 
                     <TextView
@@ -181,8 +192,9 @@
                         android:text="TextView"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/pressure"
-                        app:layout_constraintStart_toStartOf="@+id/pressure"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.098"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/pressure" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -191,3 +203,4 @@
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

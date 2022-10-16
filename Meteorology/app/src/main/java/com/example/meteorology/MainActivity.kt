@@ -14,15 +14,25 @@ import org.json.JSONObject
 import java.io.IOException
 import java.util.*
 
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
+    private lateinit var client:OkHttpClient
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        client = OkHttpClient()
+        refreshData()
 
-        val client = OkHttpClient()
+        val pullToRefresh = binding.pullToRefresh
+        pullToRefresh.setOnRefreshListener {
+            refreshData()
+            pullToRefresh.isRefreshing = false
+        }
+    }
 
+    private fun refreshData() {
         val request = Request.Builder().url("https://api.openweathermap.org/data/2.5/weather?q=tehran&appid=501b25848afaeca041fb1ce35525d09b&units=metric").build()
 
         client.newCall(request).enqueue(object :Callback{
