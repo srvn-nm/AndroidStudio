@@ -16,7 +16,7 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityMainBinding
     private lateinit var client:OkHttpClient
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
