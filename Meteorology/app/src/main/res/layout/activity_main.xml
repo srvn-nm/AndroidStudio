@@ -152,14 +152,14 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:layout_marginTop="40dp"
-                            app:srcCompat="@drawable/ic_sunset2" />
+                            android:src="@drawable/ic_sunset2" />
 
                         <ImageView
                             android:id="@+id/imageView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
-                            app:srcCompat="@drawable/ic_sunrise2" />
+                            android:src="@drawable/ic_sunrise2" />
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -255,7 +255,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
-                            app:srcCompat="@drawable/ic_temperature_down" />
+                            android:src="@drawable/ic_temperature_down" />
 
                         <ImageView
                             android:id="@+id/imageView7"
@@ -263,7 +263,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:layout_marginTop="40dp"
-                            app:srcCompat="@drawable/ic_temperature_up" />
+                            android:src="@drawable/ic_temperature_up" />
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
