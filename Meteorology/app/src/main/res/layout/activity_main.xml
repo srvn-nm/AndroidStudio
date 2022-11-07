@@ -275,13 +275,16 @@
                             android:id="@+id/imageView9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_temperature" />
+                            android:layout_gravity="right"
+                            android:src="@drawable/ic_temperature" />
 
                         <ImageView
                             android:id="@+id/imageView8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_humidity" />
+                            android:layout_gravity="right"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/ic_humidity" />
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
