@@ -80,9 +80,9 @@ class MainActivity : AppCompatActivity() {
                 Log.d("tagx","onResponse: successful")
 
                 runOnUiThread {
-                    showInfo(downloadedJSON.getString("name"),weatherCity,weatherImageUrl,timeFromUnix(sunrise),timeFromUnix(sunset),temp,feelsLike,tempMin,tempMax,pressure,humidity)
                     binding.imageView.visibility=View.VISIBLE
                     binding.progressBar2.visibility=View.GONE
+                    showInfo(downloadedJSON.getString("name"),weatherCity,weatherImageUrl,timeFromUnix(sunrise),timeFromUnix(sunset),temp,feelsLike,tempMin,tempMax,pressure,humidity)
                 }
 
             }
