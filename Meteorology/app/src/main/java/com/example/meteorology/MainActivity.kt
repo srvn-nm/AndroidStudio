@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.transition.Visibility
 import com.bumptech.glide.Glide
 import com.example.meteorology.databinding.ActivityMainBinding
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
@@ -98,6 +99,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun reloadData(view:View){
-
+        binding.imageView.visibility=View.GONE
+        binding.progressBar2.visibility=View.VISIBLE
     }
 }
