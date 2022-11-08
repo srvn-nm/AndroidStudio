@@ -1,6 +1,7 @@
 package com.example.meteorology
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.os.Bundle
@@ -9,6 +10,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.meteorology.databinding.ActivityMainBinding
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -18,6 +20,9 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var client:OkHttpClient
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase?.let { ViewPumpContextWrapper.wrap(it) })
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
