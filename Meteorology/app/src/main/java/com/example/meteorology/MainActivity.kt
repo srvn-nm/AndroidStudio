@@ -39,7 +39,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun refreshData() {
+        binding.imageView.visibility=View.GONE
+        binding.progressBar2.visibility=View.VISIBLE
+        binding.city.text = "--"
+        binding.weather.text = "--"
+        binding.sunrise.text = "Sunrise: --"
+        binding.sunset.text = "Sunset: --"
+        binding.temp.text = "Temperature: --"
+        binding.feelsLike.text = "FeelsLike: --"
+        binding.tempmin.text = "Minimum: --"
+        binding.tempmax.text = "Maximum: --"
+        binding.pressure.text = "Pressure: --"
+        binding.humidity.text = "Humidity: --"
+
         val request = Request.Builder().url("https://api.openweathermap.org/data/2.5/weather?q=tehran&appid=501b25848afaeca041fb1ce35525d09b&units=metric").build()
 
         client.newCall(request).enqueue(object :Callback{
@@ -67,7 +81,8 @@ class MainActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     showInfo(downloadedJSON.getString("name"),weatherCity,weatherImageUrl,timeFromUnix(sunrise),timeFromUnix(sunset),temp,feelsLike,tempMin,tempMax,pressure,humidity)
-
+                    binding.imageView.visibility=View.VISIBLE
+                    binding.progressBar2.visibility=View.GONE
                 }
 
             }
@@ -98,8 +113,20 @@ class MainActivity : AppCompatActivity() {
         return SimpleDateFormat("hh:mm:ss").format(date)
     }
 
+    @SuppressLint("SetTextI18n")
     fun reloadData(view:View){
         binding.imageView.visibility=View.GONE
         binding.progressBar2.visibility=View.VISIBLE
+        binding.city.text = "--"
+        binding.weather.text = "--"
+        binding.sunrise.text = "Sunrise: --"
+        binding.sunset.text = "Sunset: --"
+        binding.temp.text = "Temperature: --"
+        binding.feelsLike.text = "FeelsLike: --"
+        binding.tempmin.text = "Minimum: --"
+        binding.tempmax.text = "Maximum: --"
+        binding.pressure.text = "Pressure: --"
+        binding.humidity.text = "Humidity: --"
+        refreshData()
     }
 }
