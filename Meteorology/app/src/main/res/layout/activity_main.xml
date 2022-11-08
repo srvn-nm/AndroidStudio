@@ -35,7 +35,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:contentDescription="TODO"
-                android:src="@drawable/tower" />
+                android:src="@drawable/tower"
+                android:onClick="reloadData"
+                tools:ignore="UsingOnClickInXml"
+                android:visibility="visible"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/city"

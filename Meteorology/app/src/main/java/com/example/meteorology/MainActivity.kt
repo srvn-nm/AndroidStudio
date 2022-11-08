@@ -6,6 +6,7 @@ import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -94,5 +95,9 @@ class MainActivity : AppCompatActivity() {
         val time = unixTime*1000.toLong()
         val date = Date(time)
         return SimpleDateFormat("hh:mm:ss").format(date)
+    }
+
+    fun reloadData(view:View){
+
     }
 }
