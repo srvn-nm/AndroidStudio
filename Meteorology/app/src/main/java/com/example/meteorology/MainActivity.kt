@@ -127,6 +127,7 @@ class MainActivity : AppCompatActivity() {
         binding.tempmax.text = "Maximum: --"
         binding.pressure.text = "Pressure: --"
         binding.humidity.text = "Humidity: --"
+        Glide.with(this@MainActivity).load(R.drawable.ic_refresh).into(binding.weatherIcon)
         refreshData()
     }
 }
