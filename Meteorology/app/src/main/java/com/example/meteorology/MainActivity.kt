@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.transition.Visibility
 import com.bumptech.glide.Glide
 import com.example.meteorology.databinding.ActivityMainBinding
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
