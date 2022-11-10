@@ -1,6 +1,5 @@
 package com.example.meteorology
 
-import android.R
 import android.app.Application
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
