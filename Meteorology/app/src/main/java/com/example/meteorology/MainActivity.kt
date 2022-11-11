@@ -14,11 +14,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button.setOnClickListener {
-            if (binding.textInputLayout.editText.toString().isEmpty()){
+            if (binding.textInput.text.toString().isEmpty()){
                 Toast.makeText(this,"Enter city name,first!",Toast.LENGTH_SHORT).show()
             }else{
-                val intent = Intent(this,MainActivity2::class.java)
-                intent.putExtra("cityName",binding.textInputLayout.editText.toString())
+                val intent = Intent(this@MainActivity,MainActivity2::class.java)
+                intent.putExtra("cityName",binding.textInput.text.toString())
                 startActivity(intent)
             }
         }

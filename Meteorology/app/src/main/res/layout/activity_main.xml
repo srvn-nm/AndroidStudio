@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.168"
-        app:srcCompat="@drawable/images"
+        android:src="@drawable/images"
         tools:ignore="ContentDescription,HardcodedText" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -36,6 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView10">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#AACEF4"
@@ -49,12 +50,13 @@
         android:layout_width="129dp"
         android:layout_height="61dp"
         android:layout_marginTop="61dp"
-        android:backgroundTint="#AACEF4"
         android:text="Weather"
+        android:textColor="#AACEF4"
+        android:textSize="18dp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,SpUsage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

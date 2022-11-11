@@ -78,7 +78,8 @@
                     android:layout_weight="2"
                     android:text="TextView"
                     android:textSize="24dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#ffff"/>
 
                 <ImageView
                     android:id="@+id/weatherIcon"
