@@ -19,6 +19,7 @@ import java.util.*
 
 
 class MainActivity2 : AppCompatActivity() {
+    private lateinit var cityName : String
     private lateinit var binding : ActivityMain2Binding
     private lateinit var client:OkHttpClient
     override fun attachBaseContext(newBase: Context?) {
@@ -29,6 +30,7 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         client = OkHttpClient()
+        cityName = intent.getStringExtra("cityName").toString()
         refreshData()
 
         val pullToRefresh = binding.pullToRefresh
@@ -53,7 +55,7 @@ class MainActivity2 : AppCompatActivity() {
         binding.pressure.text = "Pressure: --"
         binding.humidity.text = "Humidity: --"
 
-        val request = Request.Builder().url("https://api.openweathermap.org/data/2.5/weather?q=tehran&appid=501b25848afaeca041fb1ce35525d09b&units=metric").build()
+        val request = Request.Builder().url("https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=501b25848afaeca041fb1ce35525d09b&units=metric").build()
 
         client.newCall(request).enqueue(object :Callback{
             override fun onFailure(call: Call, e: IOException) {
