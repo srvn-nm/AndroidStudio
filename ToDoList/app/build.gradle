@@ -29,6 +29,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
+
     buildToolsVersion '33.0.0'
     ndkVersion '25.0.8775105'
 }
