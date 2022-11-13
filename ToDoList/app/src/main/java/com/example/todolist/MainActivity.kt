@@ -57,12 +57,12 @@ class MainActivity : AppCompatActivity() {
             taskStateList.add(tempJSONObject.getBoolean("completed").toString())
             index ++
         }
-        val intent = Intent(this@MainActivity , MenuActivity::class.java)
-
-        intent.putExtra("userIdList",userIdList)
-        intent.putExtra("taskIdList",taskIdList)
-        intent.putExtra("taskTextList",taskTextList)
-        intent.putExtra("taskStateList",taskStateList)
-        startActivity(intent)
+//        val intent = Intent(this@MainActivity , MenuActivity::class.java)
+//
+//        intent.putExtra("userIdList",userIdList)
+//        intent.putExtra("taskIdList",taskIdList)
+//        intent.putExtra("taskTextList",taskTextList)
+//        intent.putExtra("taskStateList",taskStateList)
+//        startActivity(intent)
     }
 }
