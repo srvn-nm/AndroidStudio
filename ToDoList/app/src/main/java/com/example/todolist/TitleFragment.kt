@@ -16,12 +16,14 @@ class TitleFragment : Fragment() {
     private var mText: CharSequence = "Loading Notes..."
     private var mIndex = 0
     private var mDelay: Long = 150
-    private val mHandler: Handler = Handler()
+    private lateinit var mHandler: Handler
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentTitleBinding.inflate(inflater, container, false)
 
         binding.textView2.text=""
+
+        mHandler = Handler()
         mHandler.removeCallbacks(characterAdder)
         mHandler.postDelayed(characterAdder, mDelay)
 
