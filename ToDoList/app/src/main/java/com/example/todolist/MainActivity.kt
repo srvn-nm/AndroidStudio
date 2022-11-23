@@ -2,6 +2,7 @@ package com.example.todolist
 
 //import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,10 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var mText: CharSequence = "Loading Notes..."
+    private var mIndex = 0
+    private var mDelay: Long = 150
+    private lateinit var mHandler: Handler
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -32,6 +37,10 @@ class MainActivity : AppCompatActivity() {
                 runOnUiThread {
 
                     jsonToDoList(jsonArray)
+
+                    mHandler = Handler()
+                    mHandler.removeCallbacks(characterAdder)
+                    mHandler.postDelayed(characterAdder, mDelay)
 
                 }
 
@@ -64,5 +73,14 @@ class MainActivity : AppCompatActivity() {
 //        intent.putExtra("taskTextList",taskTextList)
 //        intent.putExtra("taskStateList",taskStateList)
 //        startActivity(intent)
+    }
+
+    private val characterAdder: Runnable = object : Runnable {
+        override fun run() {
+            binding.textView2.text = mText.subSequence(0, mIndex++)
+            if (mIndex <= mText.length) {
+                mHandler.postDelayed(this, mDelay)
+            }
+        }
     }
 }
