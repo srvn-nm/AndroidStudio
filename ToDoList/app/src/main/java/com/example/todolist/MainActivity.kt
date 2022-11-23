@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var mText: CharSequence = "Loading Notes..."
     private var mIndex = 0
-    private var mDelay: Long = 150
+    private var mDelay: Long = 50
     private lateinit var mHandler: Handler
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
