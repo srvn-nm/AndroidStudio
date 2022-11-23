@@ -1,6 +1,6 @@
 package com.example.todolist
 
-//import android.content.Intent
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -66,13 +66,13 @@ class MainActivity : AppCompatActivity() {
             taskStateList.add(tempJSONObject.getBoolean("completed").toString())
             index ++
         }
-//        val intent = Intent(this@MainActivity , MenuActivity::class.java)
-//
-//        intent.putExtra("userIdList",userIdList)
-//        intent.putExtra("taskIdList",taskIdList)
-//        intent.putExtra("taskTextList",taskTextList)
-//        intent.putExtra("taskStateList",taskStateList)
-//        startActivity(intent)
+        val intent = Intent(this@MainActivity , MenuActivity::class.java)
+
+        intent.putExtra("userIdList",userIdList)
+        intent.putExtra("taskIdList",taskIdList)
+        intent.putExtra("taskTextList",taskTextList)
+        intent.putExtra("taskStateList",taskStateList)
+        startActivity(intent)
     }
 
     private val characterAdder: Runnable = object : Runnable {
