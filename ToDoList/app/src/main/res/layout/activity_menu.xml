@@ -5,16 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="40dp"
+    android:background="#FBD7E3"
+    app:backgroundTint="#FBD7E3"
     tools:context=".MenuActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/download1"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,11 +30,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:fontFamily="casual"
             android:gravity="center"
             android:text="@string/search_menu"
-            android:textSize="30dp"
+            android:textSize="40dp"
             android:textStyle="bold|italic"
             tools:ignore="SpUsage" />
 
@@ -41,12 +44,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:background="#EAB09E"
+            android:background="#F6D5CB"
             android:fontFamily="@font/akaya_telivigala"
             android:radius="20dp"
             android:text="@string/search_by_user_id"
-            android:textSize="30dp"
-            app:backgroundTint="#EAB09E"
+            android:textSize="25dp"
+            app:backgroundTint="#F6D5CB"
             app:cornerRadius="20dp"
             tools:ignore="SpUsage" />
 
