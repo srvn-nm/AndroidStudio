@@ -19,7 +19,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ExtraText">
 
         <TextView
             android:id="@+id/textView3"
@@ -27,9 +28,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
+            android:fontFamily="casual"
             android:gravity="center"
             android:text="@string/search_menu"
             android:textSize="30dp"
+            android:textStyle="bold|italic"
             tools:ignore="SpUsage" />
 
         <Button
@@ -39,8 +42,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:background="#EAB09E"
+            android:fontFamily="@font/akaya_telivigala"
+            android:radius="20dp"
+            android:text="@string/search_by_user_id"
+            android:textSize="30dp"
             app:backgroundTint="#EAB09E"
-            android:text="@string/search_by_user_id"/>
+            app:cornerRadius="20dp"
+            tools:ignore="SpUsage" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
