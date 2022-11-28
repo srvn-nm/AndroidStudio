@@ -36,20 +36,22 @@ class MenuActivity : AppCompatActivity() {
         var check=true
         while(check){
             if (userInfo != null) {
-                if (userInfo in taskTextList || userInfo.toInt() in userIdList || userInfo.toInt() in taskIdList){
-                    check=false
-                    val intent = Intent(this , ToDoListActivity::class.java)
-                    intent.putExtra("userInfo",userInfo)
-                    intent.putExtra("userIdList",userIdList)
-                    intent.putExtra("taskIdList",taskIdList)
-                    intent.putExtra("taskTextList",taskTextList)
-                    intent.putExtra("taskStateList",taskStateList)
-                    binding.button.visibility=View.VISIBLE
-                    binding.button2.visibility=View.VISIBLE
-                    binding.button3.visibility=View.VISIBLE
-                    binding.searchLayout.visibility=View.GONE
-                    startActivity(intent)
-                }else{
+                try {
+                    if (userInfo in taskTextList || userInfo.toInt() in userIdList || userInfo.toInt() in taskIdList){
+                        check=false
+                        val intent = Intent(this , ToDoListActivity::class.java)
+                        intent.putExtra("userInfo",userInfo)
+                        intent.putExtra("userIdList",userIdList)
+                        intent.putExtra("taskIdList",taskIdList)
+                        intent.putExtra("taskTextList",taskTextList)
+                        intent.putExtra("taskStateList",taskStateList)
+                        binding.button.visibility=View.VISIBLE
+                        binding.button2.visibility=View.VISIBLE
+                        binding.button3.visibility=View.VISIBLE
+                        binding.searchLayout.visibility=View.GONE
+                        startActivity(intent)
+                    }
+                }catch (e:Exception){
                     Toast.makeText(this,"Input Wrong!",Toast.LENGTH_LONG).show()
                 }
             }
