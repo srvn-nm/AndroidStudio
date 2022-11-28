@@ -2,6 +2,7 @@ package com.example.todolist
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todolist.databinding.ActivityMenuBinding
 
@@ -11,7 +12,6 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var taskIdList:ArrayList<Int>
     private lateinit var taskTextList:ArrayList<String>
     private lateinit var taskStateList:ArrayList<String>
-//    val toDoListIntent = Intent(this , ToDoListActivity::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMenuBinding.inflate(layoutInflater)
@@ -21,5 +21,9 @@ class MenuActivity : AppCompatActivity() {
         taskTextList = intent.getStringArrayListExtra("taskTextList") as ArrayList<String>
         taskStateList = intent.getStringArrayListExtra("taskStateList") as ArrayList<String>
         setContentView(binding.root)
+    }
+
+    fun userId(view: View){
+        val toDoListIntent = Intent(this , ToDoListActivity::class.java)
     }
 }

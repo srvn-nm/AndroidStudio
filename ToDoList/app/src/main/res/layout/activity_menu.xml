@@ -46,6 +46,7 @@
             android:layout_margin="30dp"
             android:background="#F6D5CB"
             android:fontFamily="@font/akaya_telivigala"
+            android:onClick="userId"
             android:radius="20dp"
             android:text="@string/search_by_user_id"
             android:textSize="25dp"
