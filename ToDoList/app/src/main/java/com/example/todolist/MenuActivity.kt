@@ -24,7 +24,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun userId(view: View){
-        val intent = Intent(this , ToDoListActivity::class.java)
+        val intent = Intent(this , InputActivity::class.java)
         intent.putExtra("userIdList",userIdList)
         intent.putExtra("taskIdList",taskIdList)
         intent.putExtra("taskTextList",taskTextList)
