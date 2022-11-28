@@ -9,4 +9,6 @@
     <string name="search_by_user_id">Search By User ID</string>
     <string name="search_by_task_id">Search By Task ID</string>
     <string name="search_by_title">Search By Title</string>
+    <string name="type_here">Type Here:</string>
+    <string name="search">Search</string>
 </resources>

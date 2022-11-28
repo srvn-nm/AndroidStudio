@@ -54,6 +54,7 @@
             android:radius="20dp"
             android:text="@string/search_by_user_id"
             android:textSize="25dp"
+            android:visibility="visible"
             app:backgroundTint="#F6D5CB"
             app:cornerRadius="20dp"
             tools:ignore="SpUsage,UsingOnClickInXml" />
@@ -70,6 +71,7 @@
             android:radius="20dp"
             android:text="@string/search_by_task_id"
             android:textSize="25dp"
+            android:visibility="visible"
             app:backgroundTint="#F6D5CB"
             app:cornerRadius="20dp"
             tools:ignore="SpUsage,UsingOnClickInXml" />
@@ -88,9 +90,52 @@
             android:radius="20dp"
             android:text="@string/search_by_title"
             android:textSize="25dp"
+            android:visibility="visible"
             app:backgroundTint="#F6D5CB"
             app:cornerRadius="20dp"
             tools:ignore="SpUsage,UsingOnClickInXml" />
+
+        <LinearLayout
+            android:id="@+id/searchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/type_here"
+                    android:textColorHint="#555454" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/button5"
+                style="@android:style/Widget.Holo.Light.Button.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="60dp"
+                android:background="#F6D5CB"
+                android:fontFamily="@font/akaya_telivigala"
+                android:onClick="searchButton"
+                android:text="@string/search"
+                android:textSize="25dp"
+                app:backgroundTint="#F6D5CB"
+                tools:ignore="SpUsage,UsingOnClickInXml" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

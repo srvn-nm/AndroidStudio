@@ -24,11 +24,24 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun userId(view: View){
+        binding.button.visibility=View.GONE
+        binding.button2.visibility=View.GONE
+        binding.button3.visibility=View.GONE
+        binding.searchLayout.visibility=View.VISIBLE
+    }
+
+    fun searchButton(view: View){
+        val userInfo = binding.textInputLayout.editText?.text?.toString()
         val intent = Intent(this , ToDoListActivity::class.java)
+        intent.putExtra("userInfo",userInfo)
         intent.putExtra("userIdList",userIdList)
         intent.putExtra("taskIdList",taskIdList)
         intent.putExtra("taskTextList",taskTextList)
         intent.putExtra("taskStateList",taskStateList)
+        binding.button.visibility=View.VISIBLE
+        binding.button2.visibility=View.VISIBLE
+        binding.button3.visibility=View.VISIBLE
+        binding.searchLayout.visibility=View.GONE
         startActivity(intent)
     }
 }
