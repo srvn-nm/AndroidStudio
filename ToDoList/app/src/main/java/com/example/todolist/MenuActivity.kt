@@ -3,6 +3,7 @@ package com.example.todolist
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todolist.databinding.ActivityMenuBinding
 
@@ -32,16 +33,26 @@ class MenuActivity : AppCompatActivity() {
 
     fun searchButton(view: View){
         val userInfo = binding.textInputLayout.editText?.text?.toString()
-        val intent = Intent(this , ToDoListActivity::class.java)
-        intent.putExtra("userInfo",userInfo)
-        intent.putExtra("userIdList",userIdList)
-        intent.putExtra("taskIdList",taskIdList)
-        intent.putExtra("taskTextList",taskTextList)
-        intent.putExtra("taskStateList",taskStateList)
-        binding.button.visibility=View.VISIBLE
-        binding.button2.visibility=View.VISIBLE
-        binding.button3.visibility=View.VISIBLE
-        binding.searchLayout.visibility=View.GONE
-        startActivity(intent)
+        var check=true
+        while(check){
+            if (userInfo != null) {
+                if (userInfo.toInt() in userIdList || userInfo.toInt() in taskIdList || userInfo in taskTextList){
+                    check=false
+                    val intent = Intent(this , ToDoListActivity::class.java)
+                    intent.putExtra("userInfo",userInfo)
+                    intent.putExtra("userIdList",userIdList)
+                    intent.putExtra("taskIdList",taskIdList)
+                    intent.putExtra("taskTextList",taskTextList)
+                    intent.putExtra("taskStateList",taskStateList)
+                    binding.button.visibility=View.VISIBLE
+                    binding.button2.visibility=View.VISIBLE
+                    binding.button3.visibility=View.VISIBLE
+                    binding.searchLayout.visibility=View.GONE
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this,"Input Wrong!",Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 }
