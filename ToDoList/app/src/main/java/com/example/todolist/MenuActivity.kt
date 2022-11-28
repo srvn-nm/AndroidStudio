@@ -24,7 +24,7 @@ class MenuActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun userId(view: View){
+    fun menuButtons(view: View){
         binding.button.visibility=View.GONE
         binding.button2.visibility=View.GONE
         binding.button3.visibility=View.GONE
@@ -36,7 +36,7 @@ class MenuActivity : AppCompatActivity() {
         var check=true
         while(check){
             if (userInfo != null) {
-                if (userInfo.toInt() in userIdList || userInfo.toInt() in taskIdList || userInfo in taskTextList){
+                if (userInfo in taskTextList || userInfo.toInt() in userIdList || userInfo.toInt() in taskIdList){
                     check=false
                     val intent = Intent(this , ToDoListActivity::class.java)
                     intent.putExtra("userInfo",userInfo)
