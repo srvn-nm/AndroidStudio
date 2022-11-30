@@ -1,12 +1,16 @@
 package com.example.todolist
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.databinding.ActivityToDoListBinding
 
 class ToDoListActivity : AppCompatActivity() {
@@ -28,41 +32,39 @@ class ToDoListActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    class CustomAdapter(private val dataSet: Array<String>) :
-        RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+    class CustomAdapter(var context: Context, var todoList:ArrayList<Todo>, var lineKey :Boolean):
+        BaseAdapter(){
+        var layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-        /**
-         * Provide a reference to the type of views that you are using
-         * (custom ViewHolder).
-         */
-        class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val textView: TextView
+        override fun getCount(): Int { return todoList.size }
 
-            init {
-                // Define click listener for the ViewHolder's View.
-                textView = view.findViewById(R.id.textView)
+        override fun getItem(position: Int): Any? { return  null }
+
+        override fun getItemId(position: Int): Long { return 0 }
+
+        @SuppressLint("SetTextI18n")
+        override fun getView(position: Int, view: View?, viewGroup: ViewGroup?): View {
+
+            var view = view
+            if(view == null){ view = layoutInflater.inflate(R.layout.list_item,viewGroup,false) }
+
+
+            val idTextView = view?.findViewById<TextView>(R.id.taskId)
+            val userIdTextView = view?.findViewById<TextView>(R.id.userId)
+            val taskTextView = view?.findViewById<TextView>(R.id.titleText)
+            val checkBoxForTaskSituation = view?.findViewById<CheckBox>(R.id.checkedTextView)
+
+            idTextView!!.text = "Task Id :     ${todoList[position].id}"
+            userIdTextView!!.text = "User Id :     ${todoList[position].userId}"
+            taskTextView!!.text = todoList[position].title
+            if(todoList[position].completed and lineKey){
+                taskTextView.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             }
+
+            checkBoxForTaskSituation!!.isChecked = todoList[position].completed
+            return view!!
+
         }
-
-        // Create new views (invoked by the layout manager)
-        override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-            // Create a new view, which defines the UI of the list item
-            val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.activity_to_do_list, viewGroup, false)
-
-            return ViewHolder(view)
-        }
-
-        // Replace the contents of a view (invoked by the layout manager)
-        override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
-            // Get element from your dataset at this position and replace the
-            // contents of the view with that element
-            viewHolder.textView.text = dataSet[position]
-        }
-
-        // Return the size of your dataset (invoked by the layout manager)
-        override fun getItemCount() = dataSet.size
 
     }
 
