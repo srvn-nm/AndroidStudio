@@ -82,14 +82,19 @@ class ToDoListActivity : AppCompatActivity() {
             val userId = userIdList[taskIdList.indexOf(userInfo.toInt())]
             val taskText = userInfo
             val taskState = taskStateList[taskIdList.indexOf(userInfo.toInt())]
-            todoList.add(Todo(userId,taskId,taskText,taskState.toBoolean()))
+            todoList.add(Todo(userId,userInfo.toInt(),taskText,taskState.toBoolean()))
 
             val customAdapter = CustomAdapter(this,todoList,true)
             binding.gridView.adapter = customAdapter
         }
 
-        else if(){
-
+        else if(userInfo in taskTextList){
+            val userId = userIdList[taskTextList.indexOf(userInfo)]
+            val taskState = taskStateList[taskTextList.indexOf(userInfo)]
+            val taskID = taskIdList[taskTextList.indexOf(userInfo)]
+            todoList.add(Todo(userId,taskID,userInfo,taskState.toBoolean()))
+            val customAdapter = CustomAdapter(this,todoList,true)
+            binding.gridView.adapter = customAdapter
         }
     }
 
