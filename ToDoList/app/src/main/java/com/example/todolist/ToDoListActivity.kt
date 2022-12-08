@@ -30,10 +30,10 @@ class ToDoListActivity : AppCompatActivity() {
         taskStateList = intent.getStringArrayListExtra("taskStateList") as ArrayList<String>
         userInfo = intent.getStringExtra("userInfo") as String
         setContentView(binding.root)
+        loadTasks()
     }
 
-    class CustomAdapter(var context: Context, var todoList:ArrayList<Todo>, var lineKey :Boolean):
-        BaseAdapter(){
+    class CustomAdapter( var context: Context, var todoList:ArrayList<Todo> , var lineKey :Boolean):BaseAdapter(){
         var layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         override fun getCount(): Int { return todoList.size }
@@ -66,6 +66,21 @@ class ToDoListActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun loadTasks(){
+        val todoList =ArrayList<Todo>()
+        if (userInfo.toInt() in userIdList){
+            for (index in 0 until userIdList.size){
+                val todo = Todo(userInfo.toInt(), userIdList[index], taskTextList[index], taskStateList[index].toBoolean())
+                todoList.add(todo)
+            }
+            val customAdapter = CustomAdapter(this,todoList,false)
+            binding.gridView.adapter = customAdapter
+        }
+        else if (userInfo.toInt() in taskIdList){
+
+        }
     }
 
 }
