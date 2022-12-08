@@ -15,4 +15,6 @@
     <string name="user_id">User ID:</string>
     <string name="task_id">Task ID:</string>
     <string name="title">Title:</string>
+    <string name="to_do_list">To Do List</string>
+    <string name="to_do">TODO</string>
 </resources>
