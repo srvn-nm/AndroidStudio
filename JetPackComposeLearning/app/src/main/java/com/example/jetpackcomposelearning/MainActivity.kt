@@ -20,6 +20,8 @@ import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -36,7 +38,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            UserList()
+//            UserList()
 //            JetPackComposeLearningTheme {
 //                // A surface container using the 'background' color from the theme
 //                Surface(
@@ -55,16 +57,13 @@ fun Greeting(name: String) {
     val context = LocalContext.current
 //    match parent setting
 //    Surface(modifier = Modifier.fillMaxWidth().fillMaxHeight()) {
-    Text(
-        text = "Hello $name ^.^",
+    Text(text = "Hello $name ^.^",
         fontSize = 20.sp,
         color = colorResource(id = R.color.purple_700),
         fontFamily = FontFamily.Cursive,
         modifier = Modifier.clickable {
             Toast.makeText(
-                context,
-                "Meow! You just click on the sleeping cat ^>.<^",
-                Toast.LENGTH_LONG
+                context, "Meow! You just click on the sleeping cat ^>.<^", Toast.LENGTH_LONG
             ).show()
         })
 //    }
@@ -111,43 +110,42 @@ fun UserCard(name: String) {
 
 data class User(val id: Int)
 
-val users = listOf(
-    User(1),
-    User(2),
-    User(3),
-    User(4),
-    User(5),
-    User(6),
-    User(7),
-    User(8),
-    User(9),
-    User(10)
-)
+////changing the list in runtime
+//val users = mutableListOf(
+//    User(1), User(2), User(3), User(4), User(5), User(6), User(7), User(8), User(9), User(10)
+//)
 
 @Composable
-fun UserList() {
+fun UserList(users: List<User>) {
     //to display a list that is scrollable vertically
 //    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
 //        for (i in 1..10) {
 //            UserCard("Kitten number $i")
 //        }
 //    }
+    val name = remember {
+        mutableStateOf("Sarvin")
+    }
     //having recycler view model in the lazy column
     LazyColumn {
         //adding multiple to the list. by using item we can add a single item
         items((users)) { user ->
             UserCard("Kitten number ${user.id}")
-
+//            UserList()
         }
     }
 }
 
+@Composable
+fun MainContent(){
+
+}
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
 //    JetPackComposeLearningTheme {
     //Greeting("Kitten")
-    UserList()
+//    UserList()
 //    }
 }
