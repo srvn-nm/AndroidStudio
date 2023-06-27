@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
+import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -39,15 +40,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            JetPackComposeLearningTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Kitten")
-                }
-            }
+            UserCard()
+//            JetPackComposeLearningTheme {
+//                // A surface container using the 'background' color from the theme
+//                Surface(
+////                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    Greeting("Kitten")
+//                }
+//            }
         }
     }
 }
@@ -59,7 +61,7 @@ fun Greeting(name: String) {
 //    Surface(modifier = Modifier.fillMaxWidth().fillMaxHeight()) {
     Text(
         text = "Hello $name ^.^",
-        fontSize = 20.sp,
+        fontSize = 12.sp,
         color = colorResource(id = R.color.purple_700),
         fontFamily = FontFamily.Cursive,
         modifier = Modifier.clickable {
@@ -75,42 +77,47 @@ fun Greeting(name: String) {
 @Composable
 fun UserCard() {
     val context = LocalContext.current
-    //horizontally
-    Row(
-        modifier = Modifier
+    Card(
+        elevation = 4.dp, modifier = Modifier
+            .padding(12.dp)
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(12.dp)
-            .border(width = 1.dp, color = Color.Gray)
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.download),
-            contentDescription = "",
+        //horizontally
+        Row(
             modifier = Modifier
-                .size(120.dp)
-                .clip(
-                    CircleShape
-                ),
-            contentScale = ContentScale.Crop
-        )
-    }
-    //vertically
-    Column {
-        Text(text = stringResource(id = R.string.app_name))
-        Button(onClick = {
-            //action
-        }) {
-            Greeting(name = "Kitten")
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .padding(12.dp)
+                .border(width = 1.dp, color = Color.Gray)
+                .padding(12.dp)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.download),
+                contentDescription = "",
+                modifier = Modifier
+                    .size(120.dp)
+                    .clip(CircleShape),
+                contentScale = ContentScale.Crop
+            )
+            //vertically
+            Column {
+                Greeting(name = "Kitten")
+                Button(onClick = {
+                    //action
+                }) {
+                    Text(text = "View Profile")
+                }
+            }
         }
-
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    JetPackComposeLearningTheme {
-        //Greeting("Kitten")
-        UserCard()
-    }
+//    JetPackComposeLearningTheme {
+    //Greeting("Kitten")
+    UserCard()
+//    }
 }
