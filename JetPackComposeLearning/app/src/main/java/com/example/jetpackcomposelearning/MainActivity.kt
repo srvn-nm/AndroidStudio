@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -42,8 +43,26 @@ fun Greeting(name: String) {
     val context = LocalContext.current
 //    match parent setting
 //    Surface(modifier = Modifier.fillMaxWidth().fillMaxHeight()) {
-        Text(text = "Hello $name!", fontSize = 32.sp, color = colorResource(id = R.color.purple_700), fontFamily = FontFamily.Cursive, modifier = Modifier.clickable { Toast.makeText(context, "Meow! You just click on the sleeping cat ^>.<^", Toast.LENGTH_LONG ).show() })
+    Text(
+        text = "Hello $name ^.^",
+        fontSize = 32.sp,
+        color = colorResource(id = R.color.purple_700),
+        fontFamily = FontFamily.Cursive,
+        modifier = Modifier.clickable {
+            Toast.makeText(
+                context,
+                "Meow! You just click on the sleeping cat ^>.<^",
+                Toast.LENGTH_LONG
+            ).show()
+        })
 //    }
+}
+
+@Composable
+fun UserCard() {
+    Row() {
+
+    }
 }
 
 @Preview(showBackground = true)
