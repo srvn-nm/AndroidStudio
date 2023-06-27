@@ -21,8 +21,12 @@ import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -34,6 +38,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.math.absoluteValue
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -139,12 +144,21 @@ fun UserList(users: List<User>) {
 }
 
 @Composable
-fun MainContent(){
-    Box{
+fun MainContent() {
+    val user = User(1)
+    val users = remember {
+        mutableStateListOf(user)
+    }
+    Box {
         UserList(users = listOf())
-        Button(onClick = {
 
-        }){
+        var clickCount by remember { mutableStateOf(0) }
+        Button(modifier = Modifier
+            .padding(24.dp)
+            .align(Alignment.BottomCenter), onClick = {
+            clickCount++
+            users.add((User(clickCount)))
+        }) {
             Text(text = "Add More ...")
         }
     }
