@@ -77,7 +77,7 @@ fun Greeting(name: String) {
 }
 
 @Composable
-fun UserCard() {
+fun UserCard(name: String) {
     val context = LocalContext.current
     Card(
         elevation = 4.dp, modifier = Modifier
@@ -104,7 +104,7 @@ fun UserCard() {
             )
             //vertically
             Column {
-                Greeting(name = "Kitten")
+                Greeting(name = name)
                 Button(onClick = {
                     //action
                 }) {
@@ -119,8 +119,8 @@ fun UserCard() {
 fun UserList() {
     //to display a list that is scrollable vertically
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        for (i in 1..10){
-            UserCard()
+        for (i in 1..10) {
+            UserCard("Kitten number $i")
         }
     }
 }
