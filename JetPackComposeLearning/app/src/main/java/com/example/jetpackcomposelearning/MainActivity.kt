@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -40,7 +42,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            UserCard()
+            UserList()
 //            JetPackComposeLearningTheme {
 //                // A surface container using the 'background' color from the theme
 //                Surface(
@@ -61,7 +63,7 @@ fun Greeting(name: String) {
 //    Surface(modifier = Modifier.fillMaxWidth().fillMaxHeight()) {
     Text(
         text = "Hello $name ^.^",
-        fontSize = 12.sp,
+        fontSize = 20.sp,
         color = colorResource(id = R.color.purple_700),
         fontFamily = FontFamily.Cursive,
         modifier = Modifier.clickable {
@@ -113,11 +115,22 @@ fun UserCard() {
     }
 }
 
+@Composable
+fun UserList() {
+    //to display a list that is scrollable vertically
+    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+        for (i in 1..10){
+            UserCard()
+        }
+    }
+}
+
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
 //    JetPackComposeLearningTheme {
     //Greeting("Kitten")
-    UserCard()
+    UserList()
 //    }
 }
