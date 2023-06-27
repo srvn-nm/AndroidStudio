@@ -12,6 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.jetpackcomposelearning.ui.theme.JetPackComposeLearningTheme
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String) {
 //    match parent setting
 //    Surface(modifier = Modifier.fillMaxWidth().fillMaxHeight()) {
-        Text(text = "Hello $name!", fontSize = 32.sp, color = colorResource(id = R.color.purple_700))
+        Text(text = "Hello $name!", fontSize = 32.sp, color = colorResource(id = R.color.purple_700), fontFamily = FontFamily.Cursive)
 //    }
 }
 
