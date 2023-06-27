@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JetPackComposeLearning</string>
+    <string name="i_am_designing_xml">I am designing xml!</string>
 </resources>

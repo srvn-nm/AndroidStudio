@@ -4,4 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+
+        android:layout_height="200dp"
+        android:background="#F41A1A"
+        android:padding="12dp"
+        android:text="@string/i_am_designing_xml"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+<!--    adding compose-->
+    <androidx.compose.ui.platform.ComposeView
+
+        android:id="@+id/compose_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>
