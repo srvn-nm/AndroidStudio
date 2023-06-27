@@ -10,6 +10,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -129,15 +130,16 @@ fun UserList(users: List<User>) {
 //            UserCard("Kitten number $i")
 //        }
 //    }
-    val name = remember {
-        mutableStateOf("Sarvin")
-    }
+    //how to define a mutable state for anything
+//    val name = remember {
+//        mutableStateOf("Sarvin")
+//    }
     //having recycler view model in the lazy column
     LazyColumn {
         //adding multiple to the list. by using item we can add a single item
         items((users)) { user ->
             UserCard("Kitten number ${user.id}")
-//            UserList()
+//            UserList(users)
         }
     }
 }
@@ -148,15 +150,15 @@ fun MainContent() {
     val users = remember {
         mutableStateListOf(user)
     }
-    Box {
-        UserList(users = listOf())
+    Box(modifier = Modifier.fillMaxSize()) {
+        UserList(users = users)
 
         var clickCount by remember { mutableStateOf(0) }
         Button(modifier = Modifier
             .padding(24.dp)
             .align(Alignment.BottomCenter), onClick = {
             clickCount++
-            users.add((User(clickCount)))
+            users.add((User(clickCount + 2)))
         }) {
             Text(text = "Add More ...")
         }
@@ -169,6 +171,6 @@ fun DefaultPreview() {
     MainContent()
 //    JetPackComposeLearningTheme {
     //Greeting("Kitten")
-//    UserList()
+//    UserList(users)
 //    }
 }
