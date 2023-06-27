@@ -57,7 +57,9 @@ class MainActivity : AppCompatActivity() {
 ////                }
 ////            }
 //        }
+        //adding the fragment
         setContentView(R.layout.activity_main)
+        supportFragmentManager.beginTransaction().add(R.id.content, HomeFragment())
     }
 }
 
