@@ -15,9 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Text
@@ -112,7 +110,20 @@ fun UserCard(name: String) {
 
 
 data class User(val id: Int)
-val users = listOf(User(1), User(2), User(3), User(4), User(5), User(6), User(7),User(8), User(9), User(10) )
+
+val users = listOf(
+    User(1),
+    User(2),
+    User(3),
+    User(4),
+    User(5),
+    User(6),
+    User(7),
+    User(8),
+    User(9),
+    User(10)
+)
+
 @Composable
 fun UserList() {
     //to display a list that is scrollable vertically
@@ -122,9 +133,10 @@ fun UserList() {
 //        }
 //    }
     //having recycler view model in the lazy column
-    LazyColumn{
+    LazyColumn {
         //adding multiple to the list. by using item we can add a single item
-        items((users)){
+        items((users)) { user ->
+            UserCard("Kitten number ${user.id}")
 
         }
     }
