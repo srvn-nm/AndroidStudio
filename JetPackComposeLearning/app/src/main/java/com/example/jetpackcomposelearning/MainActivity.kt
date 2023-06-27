@@ -1,8 +1,10 @@
 package com.example.jetpackcomposelearning
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +13,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Meow")
+                    Greeting("Kitten")
                 }
             }
         }
@@ -36,9 +39,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
+    val context = LocalContext.current
 //    match parent setting
 //    Surface(modifier = Modifier.fillMaxWidth().fillMaxHeight()) {
-        Text(text = "Hello $name!", fontSize = 32.sp, color = colorResource(id = R.color.purple_700), fontFamily = FontFamily.Cursive)
+        Text(text = "Hello $name!", fontSize = 32.sp, color = colorResource(id = R.color.purple_700), fontFamily = FontFamily.Cursive, modifier = Modifier.clickable { Toast.makeText(context, "Meow! You just click on the sleeping cat ^>.<^", Toast.LENGTH_LONG ).show() })
 //    }
 }
 
@@ -46,6 +50,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     JetPackComposeLearningTheme {
-        Greeting("Meow")
+        Greeting("Kitten")
     }
 }
