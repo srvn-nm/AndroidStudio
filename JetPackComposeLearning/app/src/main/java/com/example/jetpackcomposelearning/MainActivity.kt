@@ -110,6 +110,9 @@ fun UserCard(name: String) {
     }
 }
 
+
+data class User(val id: Int)
+val users = listOf(User(1), User(2), User(3), User(4), User(5), User(6), User(7),User(8), User(9), User(10) )
 @Composable
 fun UserList() {
     //to display a list that is scrollable vertically
@@ -121,7 +124,7 @@ fun UserList() {
     //having recycler view model in the lazy column
     LazyColumn{
         //adding multiple to the list. by using item we can add a single item
-        items((1..10).toList()){
+        items((users)){
 
         }
     }
