@@ -5,4 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/home_fragment"
+        android:name="com.example.jetpackcomposelearning.HomeFragment"/>
+
 </LinearLayout>
