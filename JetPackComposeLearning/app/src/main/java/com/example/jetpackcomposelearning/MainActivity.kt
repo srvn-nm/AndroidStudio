@@ -1,6 +1,8 @@
 package com.example.jetpackcomposelearning
 
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -40,6 +42,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -118,6 +121,20 @@ fun UserCard(name: String) {
     }
 }
 
+//using xml in compose
+@Composable
+fun ComposeXml() {
+    AndroidView(factory = {
+        View.inflate(it, R.layout.composexml, null)
+    },
+    modifier = Modifier.fillMaxSize(),
+    update = {
+        val textView = it.findViewById<TextView>(R.id.textView)
+        textView.setOnClickListener {
+            textView.text = "I just updated the text in the text view!"
+        }
+    })
+}
 
 data class User(val id: Int)
 
@@ -172,7 +189,8 @@ fun MainContent() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MainContent()
+//    MainContent()
+    ComposeXml()
 //    JetPackComposeLearningTheme {
     //Greeting("Kitten")
 //    UserList(users)

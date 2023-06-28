@@ -26,7 +26,8 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                MainContent()
+//                MainContent()
+                ComposeXml()
             }
         }
     }
