@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="222dp"
+        android:layout_weight="1"
+        android:background="#B378BD"
+        android:text="@string/i_want_to_use_xml_in_compose"
+        android:textColorHighlight="#040303"
+        android:textColorHint="#27040303"
+        android:textSize="34sp" />
+</LinearLayout>
