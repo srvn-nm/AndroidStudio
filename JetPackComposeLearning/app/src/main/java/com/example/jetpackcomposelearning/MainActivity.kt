@@ -44,25 +44,25 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContent {
-//            MainContent()
-////            UserList()
-////            JetPackComposeLearningTheme {
-////                // A surface container using the 'background' color from the theme
-////                Surface(
-//////                    modifier = Modifier.fillMaxSize(),
-////                    color = MaterialTheme.colors.background
-////                ) {
-////                    Greeting("Kitten")
-////                }
-////            }
-//        }
+        setContent {
+            MainContent()
+//            UserList()
+//            JetPackComposeLearningTheme {
+//                // A surface container using the 'background' color from the theme
+//                Surface(
+////                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    Greeting("Kitten")
+//                }
+//            }
+        }
         //adding the fragment
-        setContentView(R.layout.activity_main)
-        supportFragmentManager.beginTransaction().add(R.id.content, HomeFragment())
+//        setContentView(R.layout.activity_main)
+//        supportFragmentManager.beginTransaction().add(R.id.content, HomeFragment())
     }
 }
 
@@ -189,8 +189,8 @@ fun MainContent() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-//    MainContent()
-    ComposeXml()
+    MainContent()
+//    ComposeXml()
 //    JetPackComposeLearningTheme {
     //Greeting("Kitten")
 //    UserList(users)
