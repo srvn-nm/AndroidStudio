@@ -24,9 +24,11 @@ fun MainContent() {
             composable("home") {
                 Home(navController)
             }
-            composable("work/{name}",
+//            composable("work/{name}",
+            composable("work?name={name}",
                 arguments = listOf(navArgument("name") {
                     type = NavType.StringType
+                    defaultValue = "There is no name >-<"
                 })
             ) {
                 val name = it.arguments?.getString("name")
