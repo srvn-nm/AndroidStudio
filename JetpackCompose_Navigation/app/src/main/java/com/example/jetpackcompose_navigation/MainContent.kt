@@ -28,7 +28,7 @@ fun MainContent() {
             composable("work?name={name}",
                 arguments = listOf(navArgument("name") {
                     type = NavType.StringType
-                    defaultValue = "There is no name >-<"
+                    defaultValue = "There is no name >-<"//nullable = true
                 })
             ) {
                 val name = it.arguments?.getString("name")
