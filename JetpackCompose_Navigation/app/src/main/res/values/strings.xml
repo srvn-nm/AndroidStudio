@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">JetpackCompose_Navigation</string>
     <string name="title_activity_home">Home</string>
+    <string name="title_activity_work">work</string>
 </resources>
