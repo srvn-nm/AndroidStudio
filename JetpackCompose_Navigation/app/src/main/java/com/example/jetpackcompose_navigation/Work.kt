@@ -28,10 +28,10 @@ class Work : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-                    Greeting3("Android")
-            }
+            Greeting3("Android")
         }
     }
+}
 
 @Composable
 fun Greeting3(name: String) {
@@ -75,5 +75,5 @@ fun Greeting3(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview3() {
-        Greeting3("Android")
+    Greeting3("Android")
 }

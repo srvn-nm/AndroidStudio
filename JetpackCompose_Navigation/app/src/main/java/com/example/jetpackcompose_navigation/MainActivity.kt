@@ -11,10 +11,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Greeting2()
-            }
         }
     }
-
+}
 
 
 @Preview(showBackground = true)

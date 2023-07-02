@@ -49,10 +49,10 @@ class Home : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-                    Greeting2()
-            }
+            Greeting2()
         }
     }
+}
 
 data class Item(val id: Int)
 
@@ -60,7 +60,7 @@ data class Item(val id: Int)
 @Composable
 fun ItemCard(name: String) {
     Card(
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp) ,
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         modifier = Modifier
             .padding(12.dp)
             .fillMaxWidth()
@@ -131,7 +131,8 @@ fun Greeting2() {
     }
     Column(
         modifier = Modifier.padding(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         OutlinedTextField(
             keyboardActions = KeyboardActions(
                 onSearch = {
@@ -145,21 +146,20 @@ fun Greeting2() {
             ),
             singleLine = true,
             trailingIcon = {
-                           IconButton(onClick = { /*TODO*/ }) {
-                               Icon(
-                                   imageVector = Icons.Default.Search,
-                                   contentDescription = null
-                               )
-                           }
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = null
+                    )
+                }
             },
             value = textInput,
-            onValueChange ={
-                if (it.length > limitation){
+            onValueChange = {
+                if (it.length > limitation) {
                     Toast.makeText(
                         context, "Meow! You just cross the limit of the numbers!", Toast.LENGTH_LONG
                     ).show()
-                }
-                else {
+                } else {
                     textInput = it
                 }
             },
@@ -177,7 +177,7 @@ fun Greeting2() {
         }
         Box(modifier = Modifier.fillMaxSize()) {
             ItemList(works = works)
-            for (i in 2..limit){
+            for (i in 2..limit) {
                 works.add((Item(i)))
             }
         }
@@ -187,5 +187,5 @@ fun Greeting2() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview2() {
-        Greeting2()
+    Greeting2()
 }
