@@ -73,7 +73,7 @@ fun ItemCard(name: String, navController: NavHostController? = null) {
             Column {
                 Greeting(name = name)
                 Button(onClick = {
-                    navController?.navigate("work/$name")
+                    navController?.navigate("work?name=$name")
                 }) {
                     Text(text = "View Profile")
                 }
