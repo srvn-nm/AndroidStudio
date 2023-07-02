@@ -13,6 +13,11 @@
         android:theme="@style/Theme.JetpackCompose_Navigation"
         tools:targetApi="31">
         <activity
+            android:name=".Work"
+            android:exported="false"
+            android:label="@string/title_activity_work"
+            android:theme="@style/Theme.JetpackCompose_Navigation" />
+        <activity
             android:name=".MainContent"
             android:exported="false"
             android:label="@string/title_activity_main_content"

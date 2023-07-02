@@ -22,8 +22,9 @@ fun MainContent() {
             composable("home"){
                 Home(navController)
             }
-            composable("work"){
-                Work()
+            composable("work/{name}"){
+                val name = it.arguments?.getString("name")
+                Work(name = name)
             }
         }
     }

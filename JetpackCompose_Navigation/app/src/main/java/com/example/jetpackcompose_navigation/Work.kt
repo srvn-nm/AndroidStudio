@@ -1,8 +1,5 @@
 package com.example.jetpackcompose_navigation
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
@@ -20,16 +17,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
-class Work : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Greeting3("Android")
-        }
+
+@Composable
+fun Work(name: String? = null) {
+
+    if (name != null) {
+        Greeting3(name)
     }
 }
 
@@ -48,7 +48,7 @@ fun Greeting3(name: String) {
                 .fillMaxWidth()
                 .wrapContentWidth()
                 .padding(12.dp)
-                .border(hight = 1.dp, color = Color.Gray)
+                .border(width = 1.dp, color = Color.Gray)
                 .padding(12.dp)
         ) {
             Image(
@@ -61,7 +61,11 @@ fun Greeting3(name: String) {
             )
             //vertically
             Column {
-                Greeting(name = name)
+                Text(text = name,
+                    fontSize = 20.sp,
+                    color = colorResource(id = R.color.purple_700),
+                    fontFamily = FontFamily.Cursive,
+                    )
                 Button(onClick = {
                     //action
                 }) {

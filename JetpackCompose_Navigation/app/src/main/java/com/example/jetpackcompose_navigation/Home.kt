@@ -1,9 +1,6 @@
 package com.example.jetpackcompose_navigation
 
-import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -22,7 +19,6 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -46,20 +42,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
-class Home(navController: NavHostController) : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Greeting2()
-        }
-    }
+
+@Composable
+fun Home(navController: NavHostController? = null) {
+    Greeting2(navController)
 }
 
 data class Item(val id: Int)
 
 
 @Composable
-fun ItemCard(name: String) {
+fun ItemCard(name: String, navController: NavHostController? = null) {
     Card(
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         modifier = Modifier
@@ -76,19 +69,11 @@ fun ItemCard(name: String) {
                 .border(width = 1.dp, color = Color.Gray)
                 .padding(12.dp)
         ) {
-//            Image(
-//                painter = painterResource(id = R.drawable.download),
-//                contentDescription = "",
-//                modifier = Modifier
-//                    .size(120.dp)
-//                    .clip(CircleShape),
-//                contentScale = ContentScale.Crop
-//            )
             //vertically
             Column {
                 Greeting(name = name)
                 Button(onClick = {
-                    //action
+                    navController?.navigate("work/$name")
                 }) {
                     Text(text = "View Profile")
                 }
@@ -96,6 +81,7 @@ fun ItemCard(name: String) {
         }
     }
 }
+
 
 @Composable
 fun Greeting(name: String) {
@@ -113,18 +99,17 @@ fun Greeting(name: String) {
 
 
 @Composable
-fun ItemList(works: List<Item>) {
+fun ItemList(works: List<Item>, navController: NavHostController? = null) {
     LazyColumn {
         //adding multiple to the list. by using item we can add a single item
         items((works)) { work ->
-            ItemCard("Item ${work.id}")
+            ItemCard("Item ${work.id}", navController)
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Greeting2() {
+fun Greeting2(navController: NavHostController? = null) {
     val limitation = 3
     val context = LocalContext.current
     var textInput by remember {
@@ -158,7 +143,9 @@ fun Greeting2() {
             onValueChange = {
                 if (it.length > limitation) {
                     Toast.makeText(
-                        context, "Meow! You just cross the limit of the numbers!", Toast.LENGTH_LONG
+                        context,
+                        "Meow! You just cross the limit of the numbers!",
+                        Toast.LENGTH_LONG
                     ).show()
                 } else {
                     textInput = it
@@ -177,13 +164,14 @@ fun Greeting2() {
             limit = textInput.toInt()
         }
         Box(modifier = Modifier.fillMaxSize()) {
-            ItemList(works = works)
+            ItemList(works = works, navController)
             for (i in 2..limit) {
                 works.add((Item(i)))
             }
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
