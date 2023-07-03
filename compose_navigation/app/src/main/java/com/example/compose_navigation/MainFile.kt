@@ -24,6 +24,11 @@ fun Navigation() {
         composable(NavigationItem.Home.route) {
             HomeScreen(navController)
         }
+        
+        composable(NavigationItem.Details.route){
+            val name = it.arguments?.getString("name")
+            DetailsScreen(name = name)
+        }
     }
 }
 
@@ -50,4 +55,9 @@ fun HomeScreen(navController: NavHostController) {
 
     }
 
+}
+
+@Composable
+fun DetailsScreen(name:String?){
+    Text(text = name.toString())
 }
