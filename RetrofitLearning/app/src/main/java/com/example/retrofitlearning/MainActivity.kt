@@ -19,10 +19,10 @@ import kotlin.properties.Delegates
 class MainActivity : ComponentActivity() {
 
     private lateinit var  viewModel: MainViewModel
-    var id:Int = 0
-    lateinit  var title:String
-    lateinit var body:String
-    var userId :Int = 0
+    var id1:Int = 0
+    lateinit  var title1:String
+    lateinit var body1:String
+    var userId1 :Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,14 +32,18 @@ class MainActivity : ComponentActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.getPost()
         viewModel.myResponse.observe(this, Observer {response ->
-            Log.d("Response userId", response.userId.toString())
-            Log.d("Response id", response.id.toString())
-            Log.d("Response title", response.title)
-            Log.d("Response body", response.body)
-            userId = response.userId
-            id = response.id
-            title = response.title
-            body = response.body
+            val userId2 = response.userId
+            val id2 = response.id
+            val title2 = response.title
+            val body2 = response.body
+            Log.d("Response userId", userId2.toString())
+            Log.d("Response id", id2.toString())
+            Log.d("Response title", title2)
+            Log.d("Response body", body2)
+            userId1 = userId2
+            id1 = id2
+            title1 = title2
+            body1 = body2
 
 
         })
@@ -51,7 +55,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting(userId = userId, id = id, title = title, body = body)
+                    Greeting(userId = userId1, id = id1, title = title1, body = body1)
                 }
             }
         }
