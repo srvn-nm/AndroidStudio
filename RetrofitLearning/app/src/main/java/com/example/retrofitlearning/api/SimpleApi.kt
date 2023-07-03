@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface SimpleApi {
     @GET("posts/1")
-    suspend fun detPost(): Post
+    suspend fun getPost(): Post
 }
