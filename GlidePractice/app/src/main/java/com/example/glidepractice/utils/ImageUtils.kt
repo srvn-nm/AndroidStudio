@@ -13,11 +13,11 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 
 @Composable
-fun loadPictures(url: String, @DrawableRes defaltImage: Int): MutableState<Bitmap?> {
+fun loadPicture(url: String, @DrawableRes defaultImage: Int): MutableState<Bitmap?> {
     val bitmapState: MutableState<Bitmap?> = remember { mutableStateOf(null) }
 
     //Downloading the default image
-    Glide.with(LocalContext.current).asBitmap().load(defaltImage)
+    Glide.with(LocalContext.current).asBitmap().load(defaultImage)
         .into(object : CustomTarget<Bitmap>() {
             override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                 bitmapState.value = resource
